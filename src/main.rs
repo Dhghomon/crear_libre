@@ -60,7 +60,7 @@ fn main() {
         OldNov::try_from(args.next().expect("Ples scrir Vetule o Nove").as_str()).unwrap();
     let libre = args.next().expect("Ples scrir li nómine del libre");
     let nómine_del_file = args.next().expect("Ples scrir li nómine del file");
-    let mut file = std::fs::File::create(nómine_del_file.clone()).unwrap();
+ 
 
     println!(
         "Un file nominat {nómine_del_file} va esser creat. Si un file con li sam nómine ja existe,
@@ -71,6 +71,7 @@ it va esset deletet. Ples rescrir li nómine del file por confirmar"
     if input.trim() != nómine_del_file {
         panic!("Alor on ne va crear li file. Exeant li programma");
     }
+    let mut file = std::fs::File::create(nómine_del_file.clone()).unwrap();
 
     for capitul in 1..=50 {
         match trovar_ligament(old_nov, &libre, capitul) {
